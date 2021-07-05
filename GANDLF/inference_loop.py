@@ -61,6 +61,7 @@ def inference_loop(inferenceDataFromPickle, device, parameters, outputDir):
         file_to_check = os.path.join(
             outputDir, str(parameters["model"]["architecture"]) + "_best.pth.tar"
         )
+        print("Weights selected : ", file_to_check)
         if not os.path.isfile(file_to_check):
             raise ValueError("The model specified model was not found:", file_to_check)
     main_dict = torch.load(file_to_check)
